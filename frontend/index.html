@@ -211,7 +211,7 @@ async function loadSvc(){
 
 // Accident data is fetched from the SafeRoute AI backend; no manual file picker is shown.
 // Configure these endpoints on your hosted backend when the verified feeds are ready.
-var API_BASE='http://'+window.location.hostname+':8000';
+var API_BASE='https://saferouteai-backend-4oyg.onrender.com';
 var ACCIDENT_API={historical:API_BASE+'/api/accidents/historical',live:API_BASE+'/api/accidents/live'};
 function parseAccidentFeatures(obj,kind){
  if(!obj||obj.type!=='FeatureCollection'||!Array.isArray(obj.features))throw new Error('The accident API must return a GeoJSON FeatureCollection.');
