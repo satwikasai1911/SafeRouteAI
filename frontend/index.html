@@ -66,8 +66,12 @@ li{margin-bottom:5px;font-size:14px}
 <h2>Compare routes (tap a route to see help along it)</h2>
 <div class="reco" id="reco">Press "Find safer route".</div><div id="routes"></div>
 <p class="note">Prototype proximity indicator = supplied accident points within 1.5 km of the route, normalised per 10 km. It is not a validated crash probability or a guarantee that one route is safer.</p>
+<h2>Nearby hospitals, police and essential services</h2>
+<button id="nearbyBtn" type="button">📍 Find Services Near Me</button>
+<div class="grid" id="svc">
+<div class="card">Tap the button to find nearby services.</div>
+</div>
 
-<h2>Nearby help along the selected route</h2><div class="grid" id="svc"><div class="card">Choose a route to load nearby places.</div></div>
 <p class="note">Phone numbers appear only where OpenStreetMap has them.</p>
 
 <h2>Report a road incident or hazard</h2>
@@ -162,13 +166,20 @@ async function go(){
   map.fitBounds(L.polyline(routes[0].pts).getBounds());$('msg').textContent='Done. Showing '+routes.length+' route(s).';loadSvc()
  }catch(e){$('msg').textContent='Could not complete: '+e.message+' (check internet or try a different place name).'}}
 
-async function loadSvc(){
- var rt=routes[sel];if(!rt)return;
+async function loadSvc(center){
+ var rt=routes[sel];
+ if(!center&&!rt)return;
  var my=++svcTok;$('svc').innerHTML='<div class="card">Searching for nearby hospitals and services...</div>';svcL.clearLayers();
  // Sample points along the selected route so services can be found along its length.
- var step=Math.max(1,Math.floor(rt.pts.length/16)),pts=[];
+ var pts=[];
+if(center){
+ pts.push([center.lat,center.lon]);
+}else{
+ var step=Math.max(1,Math.floor(rt.pts.length/16));
  for(var i=0;i<rt.pts.length;i+=step)pts.push(rt.pts[i]);
- var last=rt.pts[rt.pts.length-1];pts.push(last);
+ var last=rt.pts[rt.pts.length-1];
+ pts.push(last);
+}
  // Search a wider 5 km radius around each sampled route point.
  var selectors=[
   'nwr["amenity"~"^(hospital|clinic|doctors|pharmacy|police|fire_station|fuel|car_repair)$"]',
@@ -259,6 +270,23 @@ map=L.map('map',{scrollWheelZoom:false}).setView([12.95,80.0],9);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
 hotL=L.layerGroup().addTo(map);routeL=L.layerGroup().addTo(map);svcL=L.layerGroup().addTo(map);liveL=L.layerGroup().addTo(map);L.control.layers(null,{'Historical accident clusters':hotL,'Reported live incidents (unverified)':liveL,'Routes':routeL,'Nearby services':svcL},{collapsed:true}).addTo(map);
 $('timeSel').onchange=render;$('vehSel').onchange=render;$('go').onclick=go;$('sendReport').onclick=submitCitizenReport;$('useLocation').onclick=useCurrentLocation;
+$('nearbyBtn').onclick=function(){
+ if(!navigator.geolocation){
+  $('svc').textContent='Location is not supported by this browser.';
+  return;
+ }
+ $('svc').innerHTML='<div class="card">Requesting location permission...</div>';
+ navigator.geolocation.getCurrentPosition(function(pos){
+  var center={
+   lat:pos.coords.latitude,
+   lon:pos.coords.longitude
+  };
+  map.setView([center.lat,center.lon],14);
+  loadSvc(center);
+ },function(err){
+  $('svc').textContent='Could not get your location: '+err.message;
+ },{enableHighAccuracy:true,timeout:15000,maximumAge:60000});
+};
 render();go();loadAccidentData();setInterval(loadAccidentData,30000);
 })();
 </script></body></html>
