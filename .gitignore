@@ -1,0 +1,4 @@
+backend/saferoute.db
+__pycache__/
+*.pyc
+.env

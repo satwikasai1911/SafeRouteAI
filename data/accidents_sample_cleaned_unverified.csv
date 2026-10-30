@@ -1,0 +1,403 @@
+accident_id,date,hour,area,latitude,longitude,cause,vehicle,severity
+ACC0001,2025-10-11,8.0,Koyambedu,13.06758,80.19083,Wrong-side driving,Two-wheeler,Serious
+ACC0002,2025-04-21,8.0,Poonamallee,13.04772,80.09078,Poor lighting / road condition,Car,Serious
+ACC0003,2025-08-16,23.0,Walajabad,12.79263,79.82906,Distracted driving (phone),Car,Minor
+ACC0004,2025-06-20,22.0,Chromepet,12.95141,80.14665,Poor lighting / road condition,Two-wheeler,Minor
+ACC0005,2025-12-20,7.0,Chromepet,12.94837,80.14607,Over-speeding,Truck/Bus,Minor
+ACC0006,2025-03-09,20.0,Tambaram,12.9252,80.10544,Distracted driving (phone),Two-wheeler,Minor
+ACC0007,2025-09-08,17.0,Vandalur,12.887,80.0813,Wrong-side driving,Two-wheeler,Minor
+ACC0008,2025-05-12,23.0,Poonamallee,13.05305,80.0918,Over-speeding,Car,Serious
+ACC0009,2025-05-11,11.0,Tambaram,12.9285,80.10458,Wrong-side driving,Two-wheeler,Serious
+ACC0010,2025-02-03,6.0,Guindy (Kathipara),13.01173,80.22336,Drunk driving,Auto-rickshaw,Serious
+ACC0011,2025-08-30,22.0,Tambaram,12.92369,80.10141,Wrong-side driving,Truck/Bus,Serious
+ACC0012,2025-12-25,8.0,Vandalur,12.89441,80.0809,Poor lighting / road condition,Two-wheeler,Minor
+ACC0013,2025-01-21,10.0,Guindy (Kathipara),13.00809,80.21385,Wrong-side driving,Auto-rickshaw,Serious
+ACC0014,2025-06-08,9.0,Pallavaram,12.965,80.14992,Over-speeding,Two-wheeler,Minor
+ACC0015,2025-12-31,22.0,Poonamallee,13.04698,80.09464,Poor lighting / road condition,Truck/Bus,Minor
+ACC0016,2025-12-21,18.0,Pallavaram,12.96514,80.14863,Over-speeding,Car,Minor
+ACC0017,2025-01-06,7.0,Tambaram,12.91792,80.10303,Wrong-side driving,Car,Minor
+ACC0018,2025-06-12,23.0,Guindy (Kathipara),13.00644,80.2195,Drunk driving,Truck/Bus,Serious
+ACC0019,2025-12-12,12.0,Vandalur,12.8893,80.07589,Poor lighting / road condition,Two-wheeler,Minor
+ACC0020,2025-11-17,20.0,Oragadam,12.84169,79.95376,Over-speeding,Car,Fatal
+ACC0021,2025-09-24,1.0,Guindy (Kathipara),13.01332,80.21792,Distracted driving (phone),Truck/Bus,Minor
+ACC0022,2025-03-05,18.0,Koyambedu,13.06687,80.18776,Drunk driving,Two-wheeler,Serious
+ACC0023,2025-08-06,1.0,Koyambedu,13.06724,80.19423,Distracted driving (phone),Truck/Bus,Serious
+ACC0024,2025-10-20,21.0,Chromepet,12.94984,80.14417,Distracted driving (phone),Two-wheeler,Minor
+ACC0025,2025-09-15,7.0,Chromepet,12.95313,80.14395,Over-speeding,Car,Minor
+ACC0026,2025-04-01,9.0,Koyambedu,13.07253,80.19812,Distracted driving (phone),Truck/Bus,Serious
+ACC0027,2025-10-05,1.0,Koyambedu,13.07289,80.20232,Distracted driving (phone),Truck/Bus,Minor
+ACC0028,2025-07-29,5.0,Guindy (Kathipara),13.00665,80.22396,Distracted driving (phone),Two-wheeler,Fatal
+ACC0029,2025-10-30,22.0,Poonamallee,13.04386,80.08845,Over-speeding,Car,Serious
+ACC0030,2025-01-19,20.0,Chromepet,12.94764,80.14357,Distracted driving (phone),Car,Fatal
+ACC0031,2025-08-19,0.0,Kanchipuram,12.83556,79.7117,Wrong-side driving,Car,Fatal
+ACC0032,2025-11-18,18.0,Guindy (Kathipara),13.00967,80.22027,Distracted driving (phone),Two-wheeler,Serious
+ACC0033,2025-06-16,10.0,Sriperumbudur,12.96473,79.93402,Poor lighting / road condition,Two-wheeler,Minor
+ACC0034,2025-05-06,17.0,Pallavaram,12.96374,80.15362,Over-speeding,Truck/Bus,Minor
+ACC0035,2025-10-02,2.0,Chromepet,12.95381,80.14706,Over-speeding,Two-wheeler,Serious
+ACC0036,2025-01-08,22.0,Koyambedu,13.06937,80.1895,Distracted driving (phone),Two-wheeler,Serious
+ACC0037,2025-11-07,10.0,Poonamallee,13.0483,80.09425,Wrong-side driving,Truck/Bus,Minor
+ACC0038,2025-03-19,22.0,Tambaram,12.92488,80.10612,Distracted driving (phone),Truck/Bus,Serious
+ACC0039,2025-08-21,20.0,Perungalathur,12.90788,80.09014,Distracted driving (phone),Car,Minor
+ACC0040,2025-04-28,13.0,Perungalathur,12.90497,80.08738,Poor lighting / road condition,Two-wheeler,Serious
+ACC0041,2025-09-21,17.0,Vandalur,12.88736,80.08073,Poor lighting / road condition,Truck/Bus,Fatal
+ACC0042,2025-01-11,23.0,Guindy (Kathipara),13.00576,80.21718,Distracted driving (phone),Truck/Bus,Fatal
+ACC0043,2025-10-05,23.0,Chromepet,12.95035,80.14379,Over-speeding,Two-wheeler,Serious
+ACC0044,2025-03-21,19.0,Tambaram,12.92409,80.09582,Distracted driving (phone),Two-wheeler,Minor
+ACC0045,2025-06-16,1.0,Guindy (Kathipara),13.0128,80.22164,Drunk driving,Auto-rickshaw,Minor
+ACC0046,2025-07-07,0.0,Pallavaram,12.96767,80.15502,Over-speeding,Two-wheeler,Fatal
+ACC0047,2025-02-15,18.0,Pallavaram,12.96668,80.14996,Over-speeding,Two-wheeler,Minor
+ACC0048,2025-05-25,20.0,Koyambedu,13.07688,80.19717,Poor lighting / road condition,Two-wheeler,Minor
+ACC0049,2025-03-26,23.0,Walajabad,12.80282,79.8294,Drunk driving,Two-wheeler,Fatal
+ACC0050,2025-05-04,1.0,Chromepet,12.94848,80.14152,Over-speeding,Truck/Bus,Serious
+ACC0051,2025-11-01,20.0,Sriperumbudur,12.97175,79.94624,Wrong-side driving,Two-wheeler,Minor
+ACC0052,2025-09-16,22.0,Perungalathur,12.9,80.08392,Drunk driving,Auto-rickshaw,Minor
+ACC0053,2025-03-04,17.0,Vandalur,12.8925,80.08257,Poor lighting / road condition,Truck/Bus,Serious
+ACC0054,2025-03-21,12.0,Koyambedu,13.07126,80.1872,Poor lighting / road condition,Two-wheeler,Serious
+ACC0055,2025-07-14,1.0,Tambaram,12.93505,80.0993,Wrong-side driving,Auto-rickshaw,Minor
+ACC0056,2025-07-16,19.0,Pallavaram,12.96249,80.15339,Distracted driving (phone),Car,Fatal
+ACC0057,2025-02-13,17.0,Chromepet,12.94829,80.14498,Wrong-side driving,Two-wheeler,Minor
+ACC0058,2025-08-19,14.0,Sriperumbudur,12.96751,79.9393,Poor lighting / road condition,Car,Serious
+ACC0059,2025-10-26,18.0,Pallavaram,12.96659,80.14608,Over-speeding,Car,Minor
+ACC0060,2025-06-04,19.0,Perungalathur,12.90541,80.09353,Drunk driving,Truck/Bus,Minor
+ACC0061,2025-12-18,19.0,Sriperumbudur,12.96726,79.94632,Wrong-side driving,Car,Serious
+ACC0062,2025-04-02,12.0,Koyambedu,13.06651,80.19713,Wrong-side driving,Two-wheeler,Minor
+ACC0063,2025-08-02,13.0,Walajabad,12.79266,79.83744,Drunk driving,Auto-rickshaw,Fatal
+ACC0064,2025-04-26,15.0,Guindy (Kathipara),13.00254,80.21437,Distracted driving (phone),Truck/Bus,Minor
+ACC0065,2025-11-19,12.0,Pallavaram,12.97078,80.14525,Over-speeding,Two-wheeler,Serious
+ACC0066,2025-08-29,7.0,Pallavaram,12.97166,80.14479,Over-speeding,Truck/Bus,Minor
+ACC0067,2025-06-29,1.0,Perungalathur,12.90172,80.08212,Wrong-side driving,Car,Minor
+ACC0068,2025-06-12,15.0,Koyambedu,13.06913,80.19465,Distracted driving (phone),Two-wheeler,Fatal
+ACC0069,2025-03-26,1.0,Guindy (Kathipara),13.00373,80.22037,Distracted driving (phone),Car,Minor
+ACC0070,2025-04-04,19.0,Chromepet,12.94869,80.14241,Over-speeding,Car,Serious
+ACC0071,2025-05-06,8.0,Poonamallee,13.04193,80.09203,Over-speeding,Two-wheeler,Minor
+ACC0072,2025-10-28,7.0,Koyambedu,13.06791,80.19089,Distracted driving (phone),Two-wheeler,Minor
+ACC0073,2025-11-06,14.0,Tambaram,12.92661,80.09943,Over-speeding,Truck/Bus,Minor
+ACC0074,2025-01-06,12.0,Koyambedu,13.07053,80.19633,Distracted driving (phone),Auto-rickshaw,Fatal
+ACC0075,2025-01-10,17.0,Koyambedu,13.07155,80.19948,Distracted driving (phone),Auto-rickshaw,Fatal
+ACC0076,2025-08-31,0.0,Chromepet,12.94147,80.14771,Over-speeding,Auto-rickshaw,Serious
+ACC0077,2025-07-28,23.0,Koyambedu,13.07639,80.20118,Drunk driving,Car,Minor
+ACC0078,2025-06-03,20.0,Perungalathur,12.90564,80.09368,Wrong-side driving,Two-wheeler,Minor
+ACC0079,2025-12-22,22.0,Tambaram,12.92366,80.10145,Wrong-side driving,Car,Fatal
+ACC0080,2025-06-13,20.0,Pallavaram,12.96071,80.14764,Over-speeding,Truck/Bus,Serious
+ACC0081,2025-10-05,8.0,Tambaram,12.9225,80.09994,Wrong-side driving,Truck/Bus,Minor
+ACC0082,2025-12-09,17.0,Vandalur,12.8986,80.08554,Poor lighting / road condition,Two-wheeler,Serious
+ACC0083,2025-08-01,14.0,Koyambedu,13.07723,80.19416,Distracted driving (phone),Truck/Bus,Serious
+ACC0084,2025-08-18,19.0,Perungalathur,12.90133,80.08896,Drunk driving,Two-wheeler,Fatal
+ACC0085,2025-11-27,8.0,Perungalathur,12.90257,80.08361,Drunk driving,Two-wheeler,Minor
+ACC0086,2025-09-24,8.0,Guindy (Kathipara),13.00574,80.22499,Distracted driving (phone),Two-wheeler,Minor
+ACC0087,2025-12-03,8.0,Tambaram,12.92121,80.10029,Poor lighting / road condition,Two-wheeler,Minor
+ACC0088,2025-10-21,1.0,Kanchipuram,12.83904,79.71255,Poor lighting / road condition,Truck/Bus,Minor
+ACC0089,2025-07-26,2.0,Vandalur,12.89227,80.08281,Poor lighting / road condition,Two-wheeler,Minor
+ACC0090,2025-10-05,1.0,Oragadam,12.84243,79.95685,Over-speeding,Two-wheeler,Serious
+ACC0091,2025-08-25,9.0,Oragadam,12.84753,79.95589,Wrong-side driving,Car,Serious
+ACC0092,2025-06-17,15.0,Vandalur,12.89029,80.09113,Poor lighting / road condition,Truck/Bus,Minor
+ACC0093,2025-04-26,8.0,Vandalur,12.89665,80.08298,Wrong-side driving,Car,Serious
+ACC0094,2025-09-04,4.0,Chromepet,12.94349,80.14875,Wrong-side driving,Auto-rickshaw,Minor
+ACC0095,2025-12-04,14.0,Guindy (Kathipara),13.00817,80.21763,Distracted driving (phone),Two-wheeler,Minor
+ACC0096,2025-06-09,6.0,Vandalur,12.89625,80.08892,Wrong-side driving,Truck/Bus,Minor
+ACC0097,2025-11-17,0.0,Poonamallee,13.03929,80.09587,Over-speeding,Two-wheeler,Serious
+ACC0098,2025-10-13,6.0,Vandalur,12.88964,80.07855,Poor lighting / road condition,Two-wheeler,Minor
+ACC0099,2025-05-29,8.0,Pallavaram,12.96479,80.15487,Over-speeding,Truck/Bus,Minor
+ACC0100,2025-11-12,22.0,Pallavaram,12.96316,80.14761,Wrong-side driving,Car,Minor
+ACC0101,2025-05-29,17.0,Chromepet,12.94714,80.14537,Over-speeding,Car,Minor
+ACC0102,2025-09-11,6.0,Chromepet,12.94952,80.15216,Over-speeding,Two-wheeler,Minor
+ACC0103,2025-05-23,18.0,Oragadam,12.8367,79.959,Over-speeding,Two-wheeler,Serious
+ACC0104,2025-08-14,7.0,Perungalathur,12.89921,80.0871,Poor lighting / road condition,Truck/Bus,Fatal
+ACC0105,2025-12-30,14.0,Walajabad,12.79698,79.82632,Drunk driving,Two-wheeler,Fatal
+ACC0106,2025-03-21,14.0,Pallavaram,12.97029,80.14865,Over-speeding,Two-wheeler,Minor
+ACC0107,2025-01-16,18.0,Chromepet,12.95317,80.14784,Distracted driving (phone),Two-wheeler,Minor
+ACC0108,2025-09-09,9.0,Guindy (Kathipara),13.00712,80.21575,Wrong-side driving,Two-wheeler,Serious
+ACC0109,2025-05-17,18.0,Perungalathur,12.90264,80.09191,Drunk driving,Car,Minor
+ACC0110,2025-08-04,7.0,Guindy (Kathipara),13.00334,80.22374,Distracted driving (phone),Auto-rickshaw,Minor
+ACC0111,2025-03-10,9.0,Tambaram,12.9165,80.09422,Wrong-side driving,Auto-rickshaw,Minor
+ACC0112,2025-04-12,9.0,Vandalur,12.89402,80.08069,Poor lighting / road condition,Two-wheeler,Serious
+ACC0113,2025-09-14,9.0,Chromepet,12.95739,80.14708,Over-speeding,Auto-rickshaw,Minor
+ACC0114,2025-01-04,8.0,Tambaram,12.92797,80.098,Poor lighting / road condition,Car,Minor
+ACC0115,2025-11-02,0.0,Guindy (Kathipara),13.00676,80.22104,Distracted driving (phone),Two-wheeler,Minor
+ACC0116,2025-03-22,9.0,Kanchipuram,12.84258,79.70669,Wrong-side driving,Car,Minor
+ACC0117,2025-12-26,17.0,Koyambedu,13.07238,80.19305,Distracted driving (phone),Car,Minor
+ACC0118,2025-04-22,6.0,Chromepet,12.95511,80.14233,Drunk driving,Truck/Bus,Minor
+ACC0119,2025-01-25,20.0,Tambaram,12.92944,80.10925,Wrong-side driving,Truck/Bus,Minor
+ACC0120,2025-01-03,13.0,Guindy (Kathipara),13.00142,80.22482,Drunk driving,Car,Fatal
+ACC0121,2025-10-18,22.0,Kanchipuram,12.83434,79.70555,Wrong-side driving,Two-wheeler,Fatal
+ACC0122,2025-04-13,16.0,Vandalur,12.89207,80.08515,Poor lighting / road condition,Auto-rickshaw,Fatal
+ACC0123,2025-04-27,20.0,Chromepet,12.94605,80.15097,Over-speeding,Car,Minor
+ACC0124,2025-05-29,19.0,Poonamallee,13.04587,80.09822,Over-speeding,Auto-rickshaw,Minor
+ACC0125,2025-03-05,1.0,Chromepet,12.95147,80.14406,Over-speeding,Car,Minor
+ACC0126,2025-08-29,18.0,Vandalur,12.89625,80.08186,Poor lighting / road condition,Auto-rickshaw,Minor
+ACC0127,2025-04-16,20.0,Pallavaram,12.96623,80.15652,Distracted driving (phone),Two-wheeler,Serious
+ACC0128,2025-04-09,17.0,Kanchipuram,12.83392,79.70542,Wrong-side driving,Two-wheeler,Minor
+ACC0129,2025-10-22,18.0,Koyambedu,13.06526,80.19863,Distracted driving (phone),Truck/Bus,Serious
+ACC0130,2025-03-15,21.0,Tambaram,12.92479,80.10199,Wrong-side driving,Two-wheeler,Minor
+ACC0131,2025-05-06,20.0,Guindy (Kathipara),13.01093,80.21923,Distracted driving (phone),Two-wheeler,Minor
+ACC0132,2025-02-16,17.0,Chromepet,12.95,80.14805,Over-speeding,Two-wheeler,Serious
+ACC0133,2025-12-10,22.0,Guindy (Kathipara),13.01381,80.22444,Distracted driving (phone),Two-wheeler,Fatal
+ACC0134,2025-04-24,18.0,Pallavaram,12.96027,80.1482,Wrong-side driving,Auto-rickshaw,Minor
+ACC0135,2025-07-28,7.0,Guindy (Kathipara),13.00097,80.21361,Poor lighting / road condition,Two-wheeler,Serious
+ACC0136,2025-01-06,20.0,Guindy (Kathipara),13.00931,80.21511,Distracted driving (phone),Two-wheeler,Minor
+ACC0137,2025-11-24,11.0,Koyambedu,13.0699,80.19091,Distracted driving (phone),Car,Serious
+ACC0138,2025-11-12,23.0,Perungalathur,12.89727,80.08851,Drunk driving,Two-wheeler,Serious
+ACC0139,2025-09-20,16.0,Tambaram,12.93466,80.10458,Wrong-side driving,Two-wheeler,Minor
+ACC0140,2025-10-17,12.0,Kanchipuram,12.83774,79.70706,Wrong-side driving,Two-wheeler,Fatal
+ACC0141,2025-09-11,15.0,Koyambedu,13.0724,80.19228,Distracted driving (phone),Two-wheeler,Minor
+ACC0142,2025-10-28,22.0,Guindy (Kathipara),13.00371,80.21679,Over-speeding,Two-wheeler,Minor
+ACC0143,2025-06-09,18.0,Oragadam,12.84209,79.95666,Over-speeding,Two-wheeler,Fatal
+ACC0144,2025-11-14,19.0,Chromepet,12.94874,80.14673,Over-speeding,Car,Minor
+ACC0145,2025-11-09,1.0,Vandalur,12.89996,80.09024,Over-speeding,Two-wheeler,Serious
+ACC0146,2025-08-01,22.0,Chromepet,12.95077,80.14404,Drunk driving,Two-wheeler,Serious
+ACC0147,2025-11-22,17.0,Tambaram,12.9247,80.09642,Wrong-side driving,Two-wheeler,Minor
+ACC0148,2025-04-15,16.0,Guindy (Kathipara),13.00619,80.21937,Drunk driving,Two-wheeler,Minor
+ACC0149,2025-10-29,1.0,Pallavaram,12.96479,80.14974,Wrong-side driving,Car,Serious
+ACC0150,2025-08-07,12.0,Oragadam,12.83497,79.95584,Over-speeding,Car,Minor
+ACC0151,2025-12-18,8.0,Poonamallee,13.04732,80.09872,Over-speeding,Truck/Bus,Serious
+ACC0152,2025-04-14,1.0,Vandalur,12.88757,80.08121,Poor lighting / road condition,Two-wheeler,Minor
+ACC0153,2025-06-21,15.0,Kanchipuram,12.8308,79.70311,Distracted driving (phone),Car,Fatal
+ACC0154,2025-02-15,15.0,Poonamallee,13.04074,80.0908,Over-speeding,Two-wheeler,Minor
+ACC0155,2025-11-01,17.0,Kanchipuram,12.83183,79.7026,Wrong-side driving,Two-wheeler,Minor
+ACC0156,2025-01-13,22.0,Chromepet,12.9501,80.14297,Drunk driving,Two-wheeler,Minor
+ACC0157,2025-05-05,1.0,Guindy (Kathipara),13.00451,80.22151,Drunk driving,Auto-rickshaw,Serious
+ACC0158,2025-12-15,4.0,Sriperumbudur,12.97306,79.94132,Distracted driving (phone),Two-wheeler,Fatal
+ACC0159,2025-11-04,8.0,Vandalur,12.88483,80.07744,Drunk driving,Two-wheeler,Fatal
+ACC0160,2025-12-12,22.0,Tambaram,12.92158,80.10161,Wrong-side driving,Car,Minor
+ACC0161,2025-01-19,16.0,Chromepet,12.94561,80.14276,Drunk driving,Car,Minor
+ACC0162,2025-02-14,17.0,Tambaram,12.92994,80.09856,Poor lighting / road condition,Two-wheeler,Minor
+ACC0163,2025-12-09,19.0,Vandalur,12.89654,80.08645,Drunk driving,Car,Fatal
+ACC0164,2025-03-06,14.0,Chromepet,12.95016,80.1425,Over-speeding,Auto-rickshaw,Serious
+ACC0165,2025-06-20,12.0,Pallavaram,12.95767,80.1464,Wrong-side driving,Two-wheeler,Minor
+ACC0166,2025-07-25,20.0,Tambaram,12.93301,80.09819,Wrong-side driving,Car,Fatal
+ACC0167,2025-08-02,18.0,Guindy (Kathipara),13.00301,80.22131,Drunk driving,Auto-rickshaw,Serious
+ACC0168,2025-05-18,9.0,Poonamallee,13.05284,80.09429,Wrong-side driving,Car,Serious
+ACC0169,2025-11-14,20.0,Tambaram,12.9225,80.09785,Wrong-side driving,Two-wheeler,Serious
+ACC0170,2025-07-30,18.0,Chromepet,12.95226,80.14026,Distracted driving (phone),Car,Minor
+ACC0171,2025-03-31,17.0,Perungalathur,12.91206,80.09371,Drunk driving,Truck/Bus,Minor
+ACC0172,2025-02-02,19.0,Poonamallee,13.04717,80.10094,Over-speeding,Two-wheeler,Minor
+ACC0173,2025-09-05,11.0,Perungalathur,12.90829,80.08334,Drunk driving,Car,Minor
+ACC0174,2025-01-23,8.0,Vandalur,12.89268,80.08722,Poor lighting / road condition,Car,Fatal
+ACC0175,2025-07-02,18.0,Guindy (Kathipara),13.00681,80.21972,Distracted driving (phone),Two-wheeler,Minor
+ACC0176,2025-03-17,8.0,Pallavaram,12.96356,80.15445,Over-speeding,Two-wheeler,Serious
+ACC0177,2025-05-15,9.0,Tambaram,12.92185,80.09484,Drunk driving,Two-wheeler,Minor
+ACC0178,2025-03-17,21.0,Poonamallee,13.04191,80.08796,Wrong-side driving,Car,Minor
+ACC0179,2025-01-15,9.0,Guindy (Kathipara),13.00583,80.21929,Distracted driving (phone),Car,Minor
+ACC0180,2025-12-05,18.0,Poonamallee,13.04852,80.08901,Over-speeding,Two-wheeler,Minor
+ACC0181,2025-07-31,14.0,Perungalathur,12.89807,80.08845,Drunk driving,Truck/Bus,Fatal
+ACC0182,2025-07-17,20.0,Sriperumbudur,12.95874,79.95235,Over-speeding,Car,Serious
+ACC0183,2025-04-17,9.0,Guindy (Kathipara),13.00921,80.21774,Over-speeding,Two-wheeler,Minor
+ACC0184,2025-06-14,18.0,Pallavaram,12.97386,80.15532,Wrong-side driving,Car,Minor
+ACC0185,2025-10-16,19.0,Pallavaram,12.96353,80.14844,Distracted driving (phone),Truck/Bus,Minor
+ACC0186,2025-10-01,9.0,Guindy (Kathipara),13.00535,80.22424,Over-speeding,Two-wheeler,Minor
+ACC0187,2025-03-13,23.0,Oragadam,12.83999,79.9569,Over-speeding,Two-wheeler,Minor
+ACC0188,2025-07-03,12.0,Chromepet,12.94873,80.14902,Over-speeding,Two-wheeler,Serious
+ACC0189,2025-05-08,23.0,Tambaram,12.92258,80.09838,Wrong-side driving,Two-wheeler,Serious
+ACC0190,2025-01-20,8.0,Pallavaram,12.96931,80.14342,Over-speeding,Car,Minor
+ACC0191,2025-08-10,1.0,Koyambedu,13.07526,80.18874,Distracted driving (phone),Two-wheeler,Minor
+ACC0192,2025-07-11,20.0,Tambaram,12.92558,80.09914,Distracted driving (phone),Two-wheeler,Minor
+ACC0193,2025-09-29,19.0,Guindy (Kathipara),13.0115,80.22092,Distracted driving (phone),Two-wheeler,Serious
+ACC0194,2025-02-08,7.0,Koyambedu,13.06563,80.19692,Poor lighting / road condition,Truck/Bus,Fatal
+ACC0195,2025-03-02,20.0,Koyambedu,13.07201,80.19249,Distracted driving (phone),Two-wheeler,Minor
+ACC0196,2025-04-12,7.0,Koyambedu,13.06926,80.19411,Drunk driving,Truck/Bus,Serious
+ACC0197,2025-05-05,10.0,Walajabad,12.79842,79.82829,Drunk driving,Two-wheeler,Minor
+ACC0198,2025-06-14,7.0,Koyambedu,13.07656,80.19799,Wrong-side driving,Car,Minor
+ACC0199,2025-08-27,7.0,Chromepet,12.95839,80.14788,Over-speeding,Two-wheeler,Minor
+ACC0200,2025-01-24,4.0,Poonamallee,13.04454,80.09197,Over-speeding,Two-wheeler,Minor
+ACC0201,2025-12-07,20.0,Vandalur,12.89477,80.07953,Poor lighting / road condition,Truck/Bus,Minor
+ACC0202,2025-12-28,21.0,Koyambedu,13.06183,80.19888,Poor lighting / road condition,Two-wheeler,Minor
+ACC0203,2025-10-19,19.0,Pallavaram,12.97351,80.14829,Over-speeding,Two-wheeler,Minor
+ACC0204,2025-12-10,23.0,Pallavaram,12.96235,80.15185,Distracted driving (phone),Two-wheeler,Minor
+ACC0205,2025-04-11,2.0,Chromepet,12.94701,80.14184,Wrong-side driving,Car,Minor
+ACC0206,2025-11-09,18.0,Tambaram,12.92996,80.10387,Over-speeding,Truck/Bus,Serious
+ACC0207,2025-08-10,10.0,Vandalur,12.89931,80.07635,Poor lighting / road condition,Two-wheeler,Minor
+ACC0208,2025-03-20,9.0,Guindy (Kathipara),13.0068,80.21372,Distracted driving (phone),Two-wheeler,Minor
+ACC0209,2025-06-17,19.0,Poonamallee,13.04738,80.10325,Wrong-side driving,Truck/Bus,Serious
+ACC0210,2025-08-28,8.0,Perungalathur,12.90452,80.08161,Drunk driving,Two-wheeler,Minor
+ACC0211,2025-11-14,6.0,Koyambedu,13.06982,80.19013,Distracted driving (phone),Two-wheeler,Minor
+ACC0212,2025-05-09,17.0,Tambaram,12.92931,80.09842,Distracted driving (phone),Car,Serious
+ACC0213,2025-05-13,19.0,Tambaram,12.92044,80.09649,Over-speeding,Car,Minor
+ACC0214,2025-04-10,8.0,Pallavaram,12.96804,80.15581,Distracted driving (phone),Truck/Bus,Minor
+ACC0215,2025-04-19,0.0,Chromepet,12.95513,80.14285,Wrong-side driving,Car,Minor
+ACC0216,2025-04-06,7.0,Chromepet,12.94951,80.15491,Drunk driving,Two-wheeler,Serious
+ACC0217,2025-09-14,0.0,Poonamallee,13.05553,80.09536,Poor lighting / road condition,Car,Minor
+ACC0218,2025-01-21,8.0,Pallavaram,12.96653,80.14049,Distracted driving (phone),Two-wheeler,Minor
+ACC0219,2025-03-12,20.0,Pallavaram,12.96242,80.14538,Over-speeding,Two-wheeler,Fatal
+ACC0220,2025-01-25,8.0,Tambaram,12.92962,80.09577,Over-speeding,Two-wheeler,Minor
+ACC0221,2025-03-07,15.0,Poonamallee,13.04214,80.09286,Poor lighting / road condition,Two-wheeler,Minor
+ACC0222,2025-07-01,20.0,Tambaram,12.91922,80.09736,Wrong-side driving,Car,Minor
+ACC0223,2025-11-08,18.0,Tambaram,12.92716,80.09602,Wrong-side driving,Two-wheeler,Minor
+ACC0224,2025-07-03,23.0,Pallavaram,12.96556,80.14597,Over-speeding,Car,Serious
+ACC0225,2025-05-30,17.0,Guindy (Kathipara),13.01168,80.2202,Poor lighting / road condition,Two-wheeler,Minor
+ACC0226,2025-11-26,20.0,Kanchipuram,12.82895,79.7062,Over-speeding,Two-wheeler,Minor
+ACC0227,2025-04-02,7.0,Oragadam,12.84336,79.94649,Over-speeding,Two-wheeler,Fatal
+ACC0228,2025-04-29,20.0,Koyambedu,13.06845,80.19803,Distracted driving (phone),Truck/Bus,Fatal
+ACC0229,2025-05-29,23.0,Koyambedu,13.06531,80.19956,Distracted driving (phone),Truck/Bus,Serious
+ACC0230,2025-09-14,22.0,Tambaram,12.92953,80.09653,Poor lighting / road condition,Two-wheeler,Minor
+ACC0231,2025-04-23,14.0,Walajabad,12.80912,79.8303,Drunk driving,Two-wheeler,Serious
+ACC0232,2025-11-01,7.0,Chromepet,12.9571,80.14423,Over-speeding,Car,Minor
+ACC0233,2025-12-24,7.0,Guindy (Kathipara),13.00789,80.22104,Distracted driving (phone),Two-wheeler,Serious
+ACC0234,2025-04-17,9.0,Pallavaram,12.96932,80.15322,Over-speeding,Car,Fatal
+ACC0235,2025-02-11,19.0,Guindy (Kathipara),13.0038,80.21938,Over-speeding,Auto-rickshaw,Serious
+ACC0236,2025-11-07,7.0,Walajabad,12.80301,79.82527,Drunk driving,Car,Serious
+ACC0237,2025-05-24,9.0,Chromepet,12.95259,80.147,Wrong-side driving,Car,Minor
+ACC0238,2025-09-21,20.0,Pallavaram,12.96605,80.15668,Drunk driving,Truck/Bus,Minor
+ACC0239,2025-09-29,17.0,Perungalathur,12.90194,80.09264,Drunk driving,Two-wheeler,Fatal
+ACC0240,2025-05-01,23.0,Oragadam,12.84371,79.95606,Over-speeding,Truck/Bus,Minor
+ACC0241,2025-07-16,1.0,Perungalathur,12.90643,80.08479,Wrong-side driving,Auto-rickshaw,Minor
+ACC0242,2025-05-10,12.0,Poonamallee,13.04344,80.09476,Drunk driving,Two-wheeler,Minor
+ACC0243,2025-06-05,17.0,Chromepet,12.95284,80.1507,Distracted driving (phone),Truck/Bus,Minor
+ACC0244,2025-12-31,22.0,Vandalur,12.89273,80.0819,Poor lighting / road condition,Car,Minor
+ACC0245,2025-09-06,19.0,Oragadam,12.84694,79.95564,Wrong-side driving,Auto-rickshaw,Minor
+ACC0246,2025-08-02,18.0,Vandalur,12.90042,80.08183,Drunk driving,Car,Serious
+ACC0247,2025-03-27,22.0,Kanchipuram,12.83661,79.70481,Poor lighting / road condition,Two-wheeler,Serious
+ACC0248,2025-08-02,0.0,Guindy (Kathipara),13.00494,80.21525,Distracted driving (phone),Truck/Bus,Minor
+ACC0249,2025-10-28,9.0,Sriperumbudur,12.97075,79.94094,Poor lighting / road condition,Truck/Bus,Fatal
+ACC0250,2025-08-20,11.0,Tambaram,12.92379,80.10137,Distracted driving (phone),Two-wheeler,Fatal
+ACC0251,2025-12-27,9.0,Chromepet,12.95962,80.15152,Over-speeding,Two-wheeler,Serious
+ACC0252,2025-10-06,8.0,Perungalathur,12.90641,80.09092,Drunk driving,Truck/Bus,Minor
+ACC0253,2025-11-10,15.0,Guindy (Kathipara),13.01397,80.21928,Distracted driving (phone),Two-wheeler,Minor
+ACC0254,2025-10-21,23.0,Pallavaram,12.96805,80.14869,Over-speeding,Truck/Bus,Minor
+ACC0255,2025-08-26,17.0,Poonamallee,13.05336,80.08678,Over-speeding,Car,Serious
+ACC0256,2025-01-07,8.0,Guindy (Kathipara),13.00949,80.221,Distracted driving (phone),Auto-rickshaw,Minor
+ACC0257,2025-09-14,19.0,Guindy (Kathipara),13.00608,80.22454,Poor lighting / road condition,Truck/Bus,Minor
+ACC0258,2025-11-27,23.0,Chromepet,12.94688,80.14365,Over-speeding,Car,Serious
+ACC0259,2025-06-29,3.0,Koyambedu,13.07306,80.19207,Distracted driving (phone),Car,Serious
+ACC0260,2025-05-20,22.0,Chromepet,12.95859,80.1488,Wrong-side driving,Truck/Bus,Serious
+ACC0261,2025-11-26,9.0,Koyambedu,13.06724,80.19444,Distracted driving (phone),Two-wheeler,Minor
+ACC0262,2025-08-09,0.0,Poonamallee,13.03893,80.09181,Over-speeding,Car,Minor
+ACC0263,2025-08-23,1.0,Tambaram,12.92134,80.10315,Wrong-side driving,Car,Minor
+ACC0264,2025-10-16,9.0,Tambaram,12.91843,80.09972,Wrong-side driving,Truck/Bus,Serious
+ACC0265,2025-10-28,18.0,Chromepet,12.95254,80.13918,Over-speeding,Two-wheeler,Minor
+ACC0266,2025-02-27,7.0,Chromepet,12.95084,80.1462,Distracted driving (phone),Car,Serious
+ACC0267,2025-02-01,19.0,Koyambedu,13.06398,80.1962,Distracted driving (phone),Two-wheeler,Minor
+ACC0268,2025-09-28,10.0,Chromepet,12.95216,80.14319,Poor lighting / road condition,Car,Serious
+ACC0269,2025-04-30,23.0,Oragadam,12.84968,79.95944,Over-speeding,Truck/Bus,Serious
+ACC0270,2025-11-12,4.0,Guindy (Kathipara),13.00289,80.21958,Poor lighting / road condition,Truck/Bus,Serious
+ACC0271,2025-09-26,6.0,Chromepet,12.95016,80.14325,Poor lighting / road condition,Two-wheeler,Minor
+ACC0272,2025-01-19,1.0,Walajabad,12.79596,79.82446,Distracted driving (phone),Car,Serious
+ACC0273,2025-04-09,19.0,Vandalur,12.89597,80.08792,Wrong-side driving,Two-wheeler,Serious
+ACC0274,2025-07-13,3.0,Tambaram,12.92262,80.10217,Wrong-side driving,Car,Serious
+ACC0275,2025-12-10,21.0,Pallavaram,12.967,80.14854,Over-speeding,Two-wheeler,Minor
+ACC0276,2025-03-03,8.0,Koyambedu,13.07356,80.19687,Wrong-side driving,Car,Minor
+ACC0277,2025-05-07,15.0,Perungalathur,12.90154,80.09455,Drunk driving,Car,Minor
+ACC0278,2025-07-16,22.0,Sriperumbudur,12.96939,79.94487,Poor lighting / road condition,Car,Serious
+ACC0279,2025-04-05,6.0,Chromepet,12.94533,80.14925,Poor lighting / road condition,Truck/Bus,Minor
+ACC0280,2025-10-20,23.0,Oragadam,12.84316,79.95018,Over-speeding,Two-wheeler,Minor
+ACC0281,2025-10-10,22.0,Chromepet,12.95418,80.15135,Drunk driving,Two-wheeler,Fatal
+ACC0282,2025-08-03,19.0,Kanchipuram,12.83045,79.70079,Wrong-side driving,Car,Minor
+ACC0283,2025-07-15,7.0,Guindy (Kathipara),13.00893,80.22247,Poor lighting / road condition,Two-wheeler,Minor
+ACC0284,2025-11-25,8.0,Vandalur,12.8842,80.08613,Poor lighting / road condition,Truck/Bus,Minor
+ACC0285,2025-01-19,9.0,Pallavaram,12.96948,80.14321,Distracted driving (phone),Truck/Bus,Minor
+ACC0286,2025-03-04,15.0,Poonamallee,13.04512,80.09452,Drunk driving,Two-wheeler,Minor
+ACC0287,2025-07-06,8.0,Kanchipuram,12.8367,79.70235,Distracted driving (phone),Two-wheeler,Minor
+ACC0288,2025-03-09,8.0,Tambaram,12.92241,80.10036,Wrong-side driving,Car,Serious
+ACC0289,2025-01-25,18.0,Pallavaram,12.96297,80.14355,Over-speeding,Two-wheeler,Fatal
+ACC0290,2025-09-12,8.0,Sriperumbudur,12.96309,79.94079,Drunk driving,Truck/Bus,Minor
+ACC0291,2025-09-07,17.0,Walajabad,12.80133,79.82768,Drunk driving,Truck/Bus,Minor
+ACC0292,2025-08-09,2.0,Guindy (Kathipara),13.01261,80.22971,Distracted driving (phone),Car,Serious
+ACC0293,2025-11-07,18.0,Walajabad,12.79765,79.83387,Drunk driving,Two-wheeler,Serious
+ACC0294,2025-03-30,17.0,Koyambedu,13.06652,80.20235,Distracted driving (phone),Two-wheeler,Serious
+ACC0295,2025-03-25,20.0,Chromepet,12.94873,80.14449,Over-speeding,Auto-rickshaw,Serious
+ACC0296,2025-06-09,23.0,Guindy (Kathipara),13.0097,80.22682,Over-speeding,Two-wheeler,Serious
+ACC0297,2025-05-19,18.0,Guindy (Kathipara),13.00584,80.21665,Distracted driving (phone),Two-wheeler,Serious
+ACC0298,2025-04-30,8.0,Tambaram,12.92283,80.09969,Distracted driving (phone),Car,Serious
+ACC0299,2025-04-25,14.0,Sriperumbudur,12.96905,79.94085,Poor lighting / road condition,Auto-rickshaw,Serious
+ACC0300,2025-01-29,19.0,Pallavaram,12.96483,80.14749,Over-speeding,Auto-rickshaw,Fatal
+ACC0301,2025-07-14,9.0,Kanchipuram,12.83489,79.70179,Wrong-side driving,Car,Minor
+ACC0302,2025-05-06,19.0,Chromepet,12.9493,80.14953,Drunk driving,Car,Serious
+ACC0303,2025-11-24,1.0,Koyambedu,13.07017,80.1955,Wrong-side driving,Two-wheeler,Minor
+ACC0304,2025-06-13,19.0,Sriperumbudur,12.95992,79.94288,Poor lighting / road condition,Auto-rickshaw,Serious
+ACC0305,2025-03-08,8.0,Pallavaram,12.9653,80.14676,Over-speeding,Two-wheeler,Serious
+ACC0306,2025-04-18,6.0,Guindy (Kathipara),13.00602,80.22245,Wrong-side driving,Truck/Bus,Fatal
+ACC0307,2025-03-13,9.0,Koyambedu,13.06824,80.20066,Wrong-side driving,Two-wheeler,Serious
+ACC0308,2025-04-18,18.0,Oragadam,12.84232,79.95034,Over-speeding,Two-wheeler,Minor
+ACC0309,2025-09-12,20.0,Chromepet,12.95029,80.14038,Poor lighting / road condition,Car,Fatal
+ACC0310,2025-12-02,23.0,Pallavaram,12.95369,80.14672,Over-speeding,Two-wheeler,Fatal
+ACC0311,2025-02-01,9.0,Poonamallee,13.05309,80.09024,Wrong-side driving,Auto-rickshaw,Minor
+ACC0312,2025-05-23,13.0,Sriperumbudur,12.97051,79.93711,Poor lighting / road condition,Two-wheeler,Minor
+ACC0313,2025-02-06,20.0,Tambaram,12.92832,80.10097,Over-speeding,Car,Minor
+ACC0314,2025-07-20,22.0,Pallavaram,12.96593,80.14316,Poor lighting / road condition,Truck/Bus,Minor
+ACC0315,2025-04-12,19.0,Koyambedu,13.06734,80.19152,Distracted driving (phone),Two-wheeler,Serious
+ACC0316,2025-07-23,12.0,Vandalur,12.8888,80.08089,Wrong-side driving,Truck/Bus,Minor
+ACC0317,2025-11-07,19.0,Vandalur,12.89318,80.07997,Poor lighting / road condition,Car,Serious
+ACC0318,2025-06-24,8.0,Chromepet,12.95295,80.14771,Poor lighting / road condition,Two-wheeler,Minor
+ACC0319,2025-05-25,20.0,Tambaram,12.92403,80.10067,Distracted driving (phone),Two-wheeler,Fatal
+ACC0320,2025-12-03,19.0,Oragadam,12.84583,79.95709,Over-speeding,Two-wheeler,Minor
+ACC0321,2025-11-10,0.0,Tambaram,12.92562,80.10121,Wrong-side driving,Car,Serious
+ACC0322,2025-02-05,8.0,Koyambedu,13.06942,80.1881,Wrong-side driving,Auto-rickshaw,Minor
+ACC0323,2025-02-24,18.0,Chromepet,12.95575,80.14796,Distracted driving (phone),Auto-rickshaw,Minor
+ACC0324,2025-12-30,19.0,Pallavaram,12.96711,80.14329,Poor lighting / road condition,Truck/Bus,Minor
+ACC0325,2025-05-13,0.0,Walajabad,12.79244,79.82686,Drunk driving,Auto-rickshaw,Serious
+ACC0326,2025-10-04,22.0,Kanchipuram,12.83427,79.70365,Wrong-side driving,Two-wheeler,Serious
+ACC0327,2025-09-11,17.0,Tambaram,12.92552,80.10017,Over-speeding,Two-wheeler,Serious
+ACC0328,2025-04-19,16.0,Tambaram,12.92991,80.09989,Wrong-side driving,Truck/Bus,Fatal
+ACC0329,2025-05-02,23.0,Kanchipuram,12.8426,79.70559,Drunk driving,Truck/Bus,Minor
+ACC0330,2025-02-21,21.0,Pallavaram,12.95851,80.14936,Over-speeding,Two-wheeler,Minor
+ACC0331,2025-09-26,23.0,Sriperumbudur,12.97218,79.93963,Distracted driving (phone),Car,Minor
+ACC0332,2025-07-25,22.0,Vandalur,12.89464,80.07896,Poor lighting / road condition,Truck/Bus,Fatal
+ACC0333,2025-11-25,15.0,Poonamallee,13.04189,80.0925,Distracted driving (phone),Car,Minor
+ACC0334,2025-07-03,3.0,Pallavaram,12.96316,80.15001,Over-speeding,Two-wheeler,Minor
+ACC0335,2025-10-01,19.0,Oragadam,12.83993,79.95882,Over-speeding,Two-wheeler,Fatal
+ACC0336,2025-06-23,1.0,Pallavaram,12.96631,80.14786,Poor lighting / road condition,Car,Fatal
+ACC0337,2025-05-24,8.0,Tambaram,12.9309,80.09896,Over-speeding,Two-wheeler,Fatal
+ACC0338,2025-05-25,7.0,Chromepet,12.96126,80.14717,Over-speeding,Two-wheeler,Serious
+ACC0339,2025-03-16,23.0,Koyambedu,13.07267,80.198,Distracted driving (phone),Two-wheeler,Minor
+ACC0340,2025-03-31,9.0,Chromepet,12.95018,80.15043,Over-speeding,Car,Minor
+ACC0341,2025-07-30,0.0,Chromepet,12.94998,80.13992,Over-speeding,Car,Minor
+ACC0342,2025-08-26,9.0,Guindy (Kathipara),13.0018,80.21931,Poor lighting / road condition,Truck/Bus,Minor
+ACC0343,2025-10-22,17.0,Chromepet,12.95308,80.14376,Poor lighting / road condition,Two-wheeler,Minor
+ACC0344,2025-06-18,22.0,Oragadam,12.83856,79.95686,Poor lighting / road condition,Two-wheeler,Minor
+ACC0345,2025-02-04,23.0,Vandalur,12.89294,80.08531,Over-speeding,Car,Minor
+ACC0346,2025-11-17,5.0,Vandalur,12.89427,80.0775,Poor lighting / road condition,Two-wheeler,Serious
+ACC0347,2025-12-26,18.0,Chromepet,12.95385,80.15345,Over-speeding,Car,Serious
+ACC0348,2025-08-28,7.0,Perungalathur,12.9111,80.09174,Drunk driving,Car,Minor
+ACC0349,2025-08-30,13.0,Pallavaram,12.969,80.15329,Drunk driving,Car,Minor
+ACC0350,2025-12-24,18.0,Sriperumbudur,12.96698,79.94547,Poor lighting / road condition,Car,Serious
+ACC0351,2025-08-10,1.0,Chromepet,12.95379,80.14502,Poor lighting / road condition,Auto-rickshaw,Minor
+ACC0352,2025-05-31,20.0,Pallavaram,12.96493,80.14485,Distracted driving (phone),Two-wheeler,Minor
+ACC0353,2025-04-04,23.0,Pallavaram,12.96205,80.15092,Over-speeding,Two-wheeler,Fatal
+ACC0354,2025-10-01,7.0,Chromepet,12.96073,80.15098,Poor lighting / road condition,Two-wheeler,Fatal
+ACC0355,2025-04-21,7.0,Vandalur,12.8948,80.0813,Poor lighting / road condition,Two-wheeler,Minor
+ACC0356,2025-07-16,20.0,Pallavaram,12.96935,80.14513,Drunk driving,Two-wheeler,Serious
+ACC0357,2025-03-08,9.0,Pallavaram,12.96214,80.14974,Wrong-side driving,Truck/Bus,Fatal
+ACC0358,2025-04-14,18.0,Vandalur,12.89418,80.07381,Poor lighting / road condition,Two-wheeler,Minor
+ACC0359,2025-10-04,18.0,Chromepet,12.94615,80.14838,Over-speeding,Two-wheeler,Serious
+ACC0360,2025-07-24,22.0,Pallavaram,12.9729,80.15095,Over-speeding,Two-wheeler,Minor
+ACC0361,2025-05-01,16.0,Vandalur,12.89322,80.08321,Poor lighting / road condition,Two-wheeler,Minor
+ACC0362,2025-01-30,17.0,Tambaram,12.92108,80.09739,Wrong-side driving,Car,Fatal
+ACC0363,2025-05-21,18.0,Guindy (Kathipara),13.00869,80.21972,Over-speeding,Two-wheeler,Serious
+ACC0364,2025-02-04,8.0,Chromepet,12.95759,80.14291,Drunk driving,Auto-rickshaw,Minor
+ACC0365,2025-06-11,10.0,Tambaram,12.92419,80.10513,Poor lighting / road condition,Car,Serious
+ACC0366,2025-12-05,23.0,Vandalur,12.89613,80.08293,Wrong-side driving,Two-wheeler,Minor
+ACC0367,2025-04-11,1.0,Poonamallee,13.05181,80.09262,Over-speeding,Two-wheeler,Minor
+ACC0368,2025-10-10,10.0,Tambaram,12.92902,80.09738,Distracted driving (phone),Two-wheeler,Minor
+ACC0369,2025-04-27,8.0,Koyambedu,13.0636,80.19075,Distracted driving (phone),Two-wheeler,Serious
+ACC0370,2025-10-30,9.0,Koyambedu,13.06921,80.19223,Distracted driving (phone),Two-wheeler,Minor
+ACC0371,2025-01-11,21.0,Perungalathur,12.90228,80.08675,Drunk driving,Auto-rickshaw,Minor
+ACC0372,2025-01-21,14.0,Poonamallee,13.04703,80.09364,Over-speeding,Truck/Bus,Minor
+ACC0373,2025-06-22,23.0,Chromepet,12.94644,80.14917,Over-speeding,Two-wheeler,Serious
+ACC0374,2025-02-17,13.0,Chromepet,12.9555,80.14757,Drunk driving,Two-wheeler,Minor
+ACC0375,2025-09-02,13.0,Chromepet,12.95846,80.14723,Over-speeding,Car,Fatal
+ACC0376,2025-09-04,17.0,Sriperumbudur,12.96494,79.93286,Poor lighting / road condition,Two-wheeler,Minor
+ACC0377,2025-12-08,19.0,Tambaram,12.92597,80.10245,Wrong-side driving,Truck/Bus,Minor
+ACC0378,2025-05-15,12.0,Oragadam,12.84115,79.95562,Drunk driving,Two-wheeler,Minor
+ACC0379,2025-07-22,17.0,Guindy (Kathipara),13.00969,80.21381,Distracted driving (phone),Car,Minor
+ACC0380,2025-09-08,19.0,Perungalathur,12.91559,80.07935,Drunk driving,Auto-rickshaw,Minor
+ACC0381,2025-08-05,22.0,Tambaram,12.92633,80.09641,Wrong-side driving,Car,Minor
+ACC0382,2025-05-13,21.0,Poonamallee,13.04584,80.09516,Over-speeding,Two-wheeler,Minor
+ACC0383,2025-07-30,7.0,Vandalur,12.88917,80.08131,Poor lighting / road condition,Two-wheeler,Minor
+ACC0384,2025-11-20,8.0,Kanchipuram,12.83762,79.70143,Wrong-side driving,Two-wheeler,Minor
+ACC0385,2025-09-15,15.0,Vandalur,12.8928,80.08016,Drunk driving,Car,Serious
+ACC0386,2025-03-15,20.0,Pallavaram,12.97297,80.15033,Distracted driving (phone),Auto-rickshaw,Minor
+ACC0387,2025-11-09,23.0,Kanchipuram,12.83766,79.69876,Wrong-side driving,Two-wheeler,Serious
+ACC0388,2025-09-05,10.0,Tambaram,12.91818,80.09965,Wrong-side driving,Car,Minor
+ACC0389,2025-02-13,23.0,Guindy (Kathipara),13.00908,80.22117,Poor lighting / road condition,Car,Minor
+ACC0390,2025-11-11,8.0,Pallavaram,12.97134,80.15096,Over-speeding,Two-wheeler,Minor
+ACC0391,2025-09-15,11.0,Pallavaram,12.96605,80.14173,Distracted driving (phone),Truck/Bus,Serious
+ACC0392,2025-02-09,19.0,Chromepet,12.95274,80.1486,Over-speeding,Auto-rickshaw,Serious
+ACC0393,2025-06-07,0.0,Vandalur,12.89073,80.07518,Drunk driving,Auto-rickshaw,Serious
+ACC0394,2025-05-27,8.0,Guindy (Kathipara),13.00856,80.21612,Distracted driving (phone),Two-wheeler,Serious
+ACC0395,2025-02-19,22.0,Perungalathur,12.9077,80.08961,Poor lighting / road condition,Two-wheeler,Serious
+ACC0396,2025-08-10,7.0,Guindy (Kathipara),13.00114,80.21939,Distracted driving (phone),Auto-rickshaw,Serious
+ACC0397,2025-04-04,19.0,Pallavaram,12.97668,80.14919,Poor lighting / road condition,Truck/Bus,Serious
+ACC0398,2025-05-09,18.0,Pallavaram,12.96676,80.15134,Over-speeding,Two-wheeler,Minor
+ACC0399,2025-03-24,4.0,Oragadam,12.84243,79.95543,Over-speeding,Car,Serious
+ACC0400,2025-11-11,17.0,Pallavaram,12.96953,80.14903,Over-speeding,Car,Minor
+ACC0403,2025-06-21,,Vandalur,12.89,80.08,Over-speeding,Truck/Bus,Minor
+ACC0404,2025-07-02,,Koyambedu,13.07,80.19,Wrong-side driving,Car,Minor

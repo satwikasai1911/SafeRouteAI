@@ -1,0 +1,45 @@
+SAFEROUTE AI — SAMPLE DATA QUALITY & DEMO GUIDE
+================================================
+
+WHAT WAS CLEANED
+Original CSV rows: 405
+Duplicate accident_id rows removed (keep first): 1
+Rows removed because latitude/longitude missing: 2
+Rows retained with valid coordinates: 402
+Rows whose hour was invalid and is now blank/unknown: 2
+
+Important: cleaning checks structure only. It does NOT prove that any event happened,
+that the coordinates are correct, or that severity/cause values are authoritative.
+Every imported record is stored with verified=0 and source:
+"User-supplied sample CSV (UNVERIFIED)".
+
+HOW TO IMPORT
+1. Start the backend once so it creates backend/saferoute.db.
+2. Close the backend window.
+3. Double-click IMPORT_SAMPLE_DATA.bat.
+4. Restart START_BACKEND.bat and refresh the website.
+5. Check the map and popup; treat these points as demonstration/sample records only.
+
+HOW TO PRESENT THIS IN A COMPETITION
+- Explain the problem: route planning normally focuses on distance/time, not nearby
+  historical road-risk indicators and emergency support.
+- Demonstrate two routes and the sample-data proximity indicator.
+- Show nearby hospitals, pharmacies, police, fire, fuel and repair services.
+- Show the emergency calling shortcuts and clear limitations.
+- Explain the verification pipeline needed before public use: official source,
+  source URL/document, date of retrieval, coordinate accuracy, duplicate checks,
+  human review, and a visible verified/unverified badge.
+- Do not claim that this sample is official, that it predicts crashes, or that it
+  detects every live accident. The current live endpoint only displays incidents
+  entered by an authorised operator.
+
+SAFETY & LIMITATIONS
+- Route alternatives come from a public routing service and do not include live
+  traffic or guaranteed road-safety conditions.
+- The point proximity score is a prototype indicator, not a validated risk model.
+- OpenStreetMap service listings may be incomplete or outdated.
+- Emergency numbers and availability can vary; 112 is India's pan-India emergency
+  number. In a real emergency, follow official emergency-service instructions.
+- Do not let this prototype distract drivers. Use it before starting a journey or
+  ask a passenger to operate it. Never interact with a phone while driving.
+- Do not publish unverified personal reports or identifying details.

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafeRoute AI</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f6fa;color:#222}
+header{background:#1F3A5F;color:#fff;padding:14px 16px}header h1{margin:0;font-size:22px}header p{margin:4px 0 0;font-size:13px;opacity:.9}
+.wrap{max-width:1000px;margin:0 auto;padding:12px}
+.banner{background:#fff3cd;border:1px solid #e0c36a;border-radius:8px;padding:10px;font-size:13px;margin-bottom:12px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;align-items:flex-end}
+label{font-size:13px;font-weight:bold;display:block;margin-bottom:3px}
+input,select{padding:9px;font-size:14px;border-radius:6px;border:1px solid #b8c4d4;min-width:200px;background:#fff}
+button{padding:10px 18px;font-size:14px;border:0;border-radius:6px;background:#1F3A5F;color:#fff;cursor:pointer}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px}
+@media(max-width:600px){.stats{grid-template-columns:1fr}input,select{width:100%;min-width:0}.row>div{flex:1 1 100%}.row button{width:100%}}
+.stat,.card{background:#fff;border:1px solid #dde4ee;border-radius:8px;padding:10px}
+.stat span{display:block;font-size:12px;color:#666}.stat b{font-size:16px;color:#1F3A5F}
+#map{height:55vh;min-height:320px;border-radius:8px;border:1px solid #b8c4d4;background:#eef3f9}
+h2{font-size:17px;color:#1F3A5F;margin:18px 0 8px}
+.route{background:#fff;border:1px solid #dde4ee;border-left:6px solid #888;border-radius:8px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
+.route.sel{box-shadow:0 0 0 2px #1F3A5F}.route h3{margin:0 0 4px;font-size:15px}.route p{margin:3px 0;font-size:13px}
+.tag{font-size:11px;padding:2px 7px;border-radius:10px;color:#fff}.good{background:#2a9d8f}.bad{background:#d7263d}
+.warn{color:#b3261e}.ok{color:#2a7a43}
+.reco{background:#e8f4ee;border:1px solid #a9d3b8;border-radius:8px;padding:10px;font-size:14px;margin-bottom:8px}
+#msg{font-size:13px;margin-bottom:8px;color:#1F3A5F}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+th,td{padding:7px 6px;border-bottom:1px solid #e5eaf2;text-align:left}th{background:#1F3A5F;color:#fff}
+.badge{padding:2px 8px;border-radius:10px;color:#fff;font-size:11px}.scroll{overflow-x:auto}
+#chart{display:flex;align-items:flex-end;gap:3px;height:140px}
+.col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.bar{width:100%;background:#7aa2d6;min-height:1px}.bar.peak{background:#d7263d}.lbl{font-size:10px;color:#666;height:14px}
+.note{font-size:12px;color:#666;margin:6px 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px}
+.grid h3{margin:0 0 6px;font-size:14px}.grid p{margin:3px 0;font-size:12px}
+.em a{display:inline-block;margin:3px 6px 3px 0;padding:8px 12px;background:#d7263d;color:#fff;border-radius:6px;text-decoration:none;font-size:14px}
+li{margin-bottom:5px;font-size:14px}
+</style></head><body>
+<header><h1>SafeRoute AI</h1><p>Accident hotspots, safer routes and emergency help &middot; Team Abhinava, SCSVMV</p></header>
+<div class="wrap">
+<div class="banner"><b>Citizen road-safety decision support — prototype.</b> This build can display the supplied Tamil Nadu sample dataset, compare route proximity to recorded points, and locate nearby help. <b>The supplied CSV is unverified sample data, not an official accident register.</b> Route time is an estimate and does not include live traffic, weather, road closures or police advisories. Always follow road signs and official instructions.</div>
+<div class="card" style="margin-bottom:12px">
+ <h2 style="margin-top:0">Accident data</h2>
+ <p class="note" id="dataStatus">Connecting to accident data services…</p>
+ <p class="note">Historical points are loaded from the connected backend. The user-supplied CSV is explicitly marked UNVERIFIED until checked against an authoritative source. Live incidents are a separate operator-reported feed; refresh does not mean automatic accident detection. Missing data is shown as unavailable, never as zero accidents.</p>
+</div>
+<div class="row">
+ <div><label for="from">Starting place</label><input id="from" value="Kanchipuram"></div>
+ <div><label for="to">Destination</label><input id="to" value="Guindy, Chennai"></div>
+ <button id="go">Find safer route</button>
+</div>
+<div class="row">
+ <div><label for="timeSel">Time of day</label><select id="timeSel"></select></div>
+ <div><label for="vehSel">Vehicle type</label><select id="vehSel"></select></div>
+</div>
+<div id="msg"></div>
+<div class="stats">
+ <div class="stat"><span>Accidents in this view</span><b id="sTotal">-</b></div>
+ <div class="stat"><span>Highest-count area in dataset</span><b id="sArea">-</b></div>
+ <div class="stat"><span>Peak hour</span><b id="sHour">-</b></div>
+</div>
+<div id="map"></div>
+<p class="note">Circles: <span style="color:#d7263d">red = more sample records</span>, <span style="color:#f4a259">orange = medium</span>, <span style="color:#2a9d8f">green = fewer</span> sample records. &#127973; hospital &#128138; medical store &#128659; police &#9981; petrol bunk &#128295; tyre/mechanic</p>
+
+<h2>Compare routes (tap a route to see help along it)</h2>
+<div class="reco" id="reco">Press "Find safer route".</div><div id="routes"></div>
+<p class="note">Prototype proximity indicator = supplied accident points within 1.5 km of the route, normalised per 10 km. It is not a validated crash probability or a guarantee that one route is safer.</p>
+
+<h2>Nearby help along the selected route</h2><div class="grid" id="svc"><div class="card">Choose a route to load nearby places.</div></div>
+<p class="note">Phone numbers appear only where OpenStreetMap has them.</p>
+
+<h2>Report a road incident or hazard</h2>
+<div class="card">
+ <p class="note">Share a location and short description. Reports are private until an authorised moderator reviews them. Do not submit personal details or emergency requests here.</p>
+ <div class="row" style="margin-top:10px">
+  <div><label for="reportType">Report type</label><select id="reportType"><option value="accident">Accident</option><option value="road_hazard">Road hazard / pothole</option><option value="traffic_block">Traffic blockage</option><option value="vehicle_breakdown">Vehicle breakdown</option><option value="other">Other</option></select></div>
+  <div><label for="reportTitle">Short title</label><input id="reportTitle" maxlength="120" placeholder="e.g. Road blocked near bus stop"></div>
+ </div>
+ <div class="row">
+  <div><label for="reportLat">Latitude</label><input id="reportLat" inputmode="decimal" placeholder="12.9716"></div>
+  <div><label for="reportLon">Longitude</label><input id="reportLon" inputmode="decimal" placeholder="80.2210"></div>
+  <button type="button" id="useLocation">Use my current location</button>
+ </div>
+ <div class="row"><div style="flex:1 1 100%"><label for="reportDescription">Description (optional)</label><input id="reportDescription" maxlength="1000" style="width:100%" placeholder="Brief details; do not include names or phone numbers"></div><button type="button" id="sendReport">Submit for review</button></div>
+ <p class="note" id="reportStatus" aria-live="polite"></p>
+</div>
+
+<h2>Emergency contacts</h2>
+<div class="card em"><a href="tel:112">112 Emergency</a><a href="tel:108">108 Ambulance</a><a href="tel:100">100 Police</a><a href="tel:101">101 Fire</a><a href="tel:1033">1033 Highway helpline</a></div>
+
+<h2>What to do in an emergency</h2>
+<div class="card"><ol>
+<li>Stop in a safe place, switch on hazard lights, place a reflective triangle behind the vehicle.</li>
+<li>Call 112 or 108. Give your exact location (landmark, road name, nearest town).</li>
+<li>Do not move an injured person unless there is fire or danger. Press firmly on heavy bleeding.</li>
+<li>Keep with you: first aid kit, torch, power bank, spare tyre and jack, water, vehicle papers and insurance details.</li>
+<li>Note the vehicle numbers, take photos, and inform the police and your insurer.</li></ol></div>
+
+<h2>Top 10 most represented areas in loaded data</h2>
+<div class="scroll"><table><thead><tr><th>#</th><th>Area</th><th>Sample records</th><th>Fatal-labelled sample records</th><th>Relative count</th></tr></thead><tbody id="top"></tbody></table></div>
+
+<h2>Accidents by hour of day</h2>
+<div class="card"><div id="chart"></div><p class="note">Hours 0-23. Red bar = peak hour.</p></div>
+</div>
+<script>
+(function(){
+var D=[]; /* mapped supplied records; provenance/verification is displayed separately */
+var liveIncidents=[];
+var COL={High:'#d7263d',Medium:'#f4a259',Low:'#2a9d8f'},RC=['#1d6fb8','#7b2cbf','#e76f51'];
+var TIMES={'All day':function(h){return true},'Morning (6 AM-12 PM)':function(h){return h>=6&&h<12},'Afternoon (12-5 PM)':function(h){return h>=12&&h<17},'Evening (5-9 PM)':function(h){return h>=17&&h<21},'Night (9 PM-6 AM)':function(h){return h>=21||h<6}};
+var VEH=['All vehicles','Two-wheeler','Car','Truck/Bus','Auto-rickshaw'];
+var CATS={hospital:['&#127973;','Hospitals & clinics'],pharmacy:['&#128138;','Medical stores'],police:['&#128659;','Police stations'],fire:['&#128658;','Fire stations'],fuel:['&#9981;','Petrol bunks'],mech:['&#128295;','Tyre / vehicle mechanics']};
+var routes=[],sel=0,hot=[],map,hotL,routeL,svcL,liveL,svcTok=0;
+function $(i){return document.getElementById(i)}
+async function getJSON(url,options){var response=await fetch(url,options);if(!response.ok)throw new Error('Service returned HTTP '+response.status);return response.json()}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function fmtH(h){return h===null?'-':((h%12)||12)+(h>=12?' PM':' AM')}
+function fmtT(m){m=Math.round(m);return m>=60?Math.floor(m/60)+' h '+(m%60)+' min':m+' min'}
+function xy(a,b){return [b*0.9744*111.32,a*110.57]}
+function dist(p,line){var q=xy(p[0],p[1]),best=1e9;for(var i=0;i<line.length-1;i++){var A=line[i],B=line[i+1],dx=B[0]-A[0],dy=B[1]-A[1],l=dx*dx+dy*dy,t=l?Math.max(0,Math.min(1,((q[0]-A[0])*dx+(q[1]-A[1])*dy)/l)):0;var d=Math.hypot(q[0]-A[0]-t*dx,q[1]-A[1]-t*dy);if(d<best)best=d}return best}
+function fill(id,arr){$(id).innerHTML=arr.map(function(k){return '<option>'+esc(k)+'</option>'}).join('')}
+function rows(){var key=$('timeSel').value,f=TIMES[key],v=$('vehSel').value;return D.filter(function(r){return (key==='All day'||(r[2]>=0&&f(r[2])))&&(v==='All vehicles'||r[4]===v)})}
+
+function hotspots(R){var g={};R.forEach(function(r){var o=g[r[3]]||(g[r[3]]={area:r[3],n:0,f:0,la:0,lo:0});o.n++;o.la+=r[0];o.lo+=r[1];if(r[5]==='Fatal')o.f++});
+ var a=Object.keys(g).map(function(k){var o=g[k];return {area:o.area,count:o.n,fatal:o.f,lat:o.la/o.n,lon:o.lo/o.n}}).sort(function(x,y){return y.count-x.count});
+ var big=a.length?a[0].count:1;a.forEach(function(h){var q=h.count/big;h.level=q>=0.66?'High':q>=0.33?'Medium':'Low'});return a}
+
+function render(){
+ var R=rows();hot=hotspots(R);var h24=[];for(var i=0;i<24;i++)h24.push(0);R.forEach(function(r){if(r[2]>=0&&r[2]<24)h24[r[2]]++});
+ var mx=Math.max.apply(null,h24),pk=R.length?h24.indexOf(mx):null;
+ $('sTotal').textContent=D.length?R.length:'No data';$('sArea').textContent=hot.length?hot[0].area:'-';$('sHour').textContent=fmtH(pk);
+ $('top').innerHTML=hot.slice(0,10).map(function(h,i){return '<tr><td>'+(i+1)+'</td><td>'+esc(h.area)+'</td><td>'+h.count+'</td><td>'+h.fatal+'</td><td><span class="badge" style="background:'+COL[h.level]+'">'+h.level+'</span></td></tr>'}).join('')||'<tr><td colspan="5">No verified geolocated historical records loaded.</td></tr>';
+ $('chart').innerHTML=h24.map(function(v,i){return '<div class="col"><div class="bar'+(i===pk?' peak':'')+'" style="height:'+Math.round(v/(mx||1)*100)+'%" title="'+fmtH(i)+': '+v+'"></div><span class="lbl">'+(i%3===0?i:'')+'</span></div>'}).join('');
+ routes.forEach(function(r){r.count=D.length?R.filter(function(a){return dist([a[0],a[1]],r.xy)<=1.5}).length:null;r.per10=D.length?Math.round(r.count/r.km*100)/10:null;
+  r.high=D.length?hot.filter(function(h){return h.level==='High'&&dist([h.lat,h.lon],r.xy)<=1.5}).map(function(h){return h.area}):[]});
+ drawMap();drawRoutes()}
+
+function drawMap(){hotL.clearLayers();routeL.clearLayers();liveL.clearLayers();
+ hot.forEach(function(h){var c=COL[h.level];L.circleMarker([h.lat,h.lon],{radius:6+Math.sqrt(h.count)*2,color:c,fillColor:c,fillOpacity:.5,weight:2}).bindPopup('<b>'+esc(h.area)+'</b><br>Sample records (unverified): '+h.count+'<br>Fatal records: '+h.fatal+'<br>Relative count band: '+h.level).addTo(hotL)});
+ liveIncidents.forEach(function(x){L.circleMarker([x.lat,x.lon],{radius:8,color:'#1769aa',fillColor:'#4da3ff',fillOpacity:.9,weight:2}).bindPopup('<b>'+esc(x.title||'Reported incident')+'</b><br>Status: '+esc(x.status||'Unverified')+'<br>Reported: '+esc(x.reportedAt||'Time not supplied')+'<br>Source: '+esc(x.source||'Not supplied')+'<br><b>Live feed data is not independently verified by this demo.</b>').addTo(liveL)});
+ routes.forEach(function(r,i){L.polyline(r.pts,{color:r.color,weight:i===sel?7:4,opacity:i===sel?.95:.5,dashArray:i===1?'10 8':null}).bindTooltip(r.name).addTo(routeL)})}
+
+function drawRoutes(){
+ if(!routes.length)return;var hasData=D.length>0,best=0;if(hasData)routes.forEach(function(r,i){if(r.per10<routes[best].per10)best=i});
+ $('reco').textContent=hasData?(routes.length>1?'Lowest sample-point proximity score in the loaded dataset: '+routes[best].name+' ('+routes[best].per10+' recorded points per 10 km, about '+fmtT(routes[best].min)+').':'One route found. Loaded dataset score: '+routes[0].per10+' recorded points per 10 km.'):'Route options are available, but the sample-record proximity indicator is unavailable until geolocated records are loaded.';
+ $('routes').innerHTML=routes.map(function(r,i){var tag=hasData&&routes.length>1?(i===best?'<span class="tag good">Lower sample count</span>':'<span class="tag bad">Higher sample count</span>'):'';
+  var w=!hasData?'<p class="warn">No geolocated records loaded; sample-record proximity indicator is unavailable.</p>':(r.high.length?'<p class="warn">Recorded high-count clusters near route: '+esc(r.high.join(', '))+'</p>':'<p class="ok">No high-count clusters in the loaded sample near this route (this does not mean zero real-world risk).</p>');
+  return '<div class="route'+(i===sel?' sel':'')+'" data-i="'+i+'" style="border-left-color:'+r.color+'"><h3>'+r.name+' '+tag+'</h3><p><b>'+fmtT(r.min)+'</b> estimated driving time &middot; '+r.km.toFixed(0)+' km</p><p>'+(hasData?'<b>'+r.per10+'</b> sample points per 10 km &middot; '+r.count+' points near route':'Sample-record indicator: unavailable')+'</p>'+w+'</div>'}).join('');
+ Array.prototype.forEach.call(document.querySelectorAll('.route'),function(e){e.onclick=function(){sel=+e.getAttribute('data-i');drawRoutes();drawMap();loadSvc()}})}
+
+async function geo(q){q=q.trim();if(!q)throw new Error('Enter both a starting place and a destination');var r=await getJSON('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=in&q='+encodeURIComponent(q));if(!r.length)throw new Error('Place not found: '+q);return {lat:+r[0].lat,lon:+r[0].lon}}
+
+async function go(){
+ $('msg').textContent='Searching places and routes...'+(location.protocol==='file:'?' (Tip: if map tiles look blank, open this page through localhost or GitHub Pages)':'');
+ try{var a=await geo($('from').value),b=await geo($('to').value);
+  var u='https://router.project-osrm.org/route/v1/driving/'+a.lon+','+a.lat+';'+b.lon+','+b.lat+'?overview=full&geometries=geojson&alternatives=true';
+  var j=await getJSON(u);if(!j.routes||!j.routes.length)throw new Error('No road route found');
+  routes=j.routes.slice(0,3).map(function(x,i){var p=x.geometry.coordinates.map(function(c){return [c[1],c[0]]});var s=Math.max(1,Math.floor(p.length/500));
+   return {name:'Route '+'ABC'[i],pts:p,xy:p.filter(function(_,k){return k%s===0||k===p.length-1}).map(function(c){return xy(c[0],c[1])}),km:x.distance/1000,min:x.duration/60,color:RC[i]}});
+  render();var best=0;routes.forEach(function(r,i){if(r.per10<routes[best].per10)best=i});sel=best;drawRoutes();drawMap();
+  map.fitBounds(L.polyline(routes[0].pts).getBounds());$('msg').textContent='Done. Showing '+routes.length+' route(s).';loadSvc()
+ }catch(e){$('msg').textContent='Could not complete: '+e.message+' (check internet or try a different place name).'}}
+
+async function loadSvc(){
+ var rt=routes[sel];if(!rt)return;
+ var my=++svcTok;$('svc').innerHTML='<div class="card">Searching for nearby hospitals and services...</div>';svcL.clearLayers();
+ // Sample points along the selected route so services can be found along its length.
+ var step=Math.max(1,Math.floor(rt.pts.length/16)),pts=[];
+ for(var i=0;i<rt.pts.length;i+=step)pts.push(rt.pts[i]);
+ var last=rt.pts[rt.pts.length-1];pts.push(last);
+ // Search a wider 5 km radius around each sampled route point.
+ var selectors=[
+  'nwr["amenity"~"^(hospital|clinic|doctors|pharmacy|police|fire_station|fuel|car_repair)$"]',
+  'nwr["shop"~"^(tyres|car_repair|motorcycle_repair)$"]'
+ ];
+ var statements=[];
+ pts.forEach(function(p){var ll=p[0].toFixed(5)+','+p[1].toFixed(5);selectors.forEach(function(sel){statements.push(sel+'(around:5000,'+ll+');')})});
+ var q='[out:json][timeout:60];('+statements.join('')+');out center 500;';
+ var endpoints=['https://overpass-api.de/api/interpreter','https://overpass.kumi.systems/api/interpreter','https://overpass.nchc.org.tw/api/interpreter'];
+ var j=null,lastError=null;
+ for(var ep=0;ep<endpoints.length;ep++){
+  try{j=await getJSON(endpoints[ep],{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:'data='+encodeURIComponent(q)});break}
+  catch(err){lastError=err}
+ }
+ if(my!==svcTok)return;
+ if(!j){$('svc').innerHTML='<div class="card">Nearby places could not be loaded right now. Check your internet connection and try selecting the route again. ('+esc(lastError?lastError.message:'service unavailable')+')</div>';return}
+ var g={hospital:[],pharmacy:[],police:[],fire:[],fuel:[],mech:[]},seen={};
+ j.elements.forEach(function(e){
+  var t=e.tags||{},a=t.amenity||'',shop=t.shop||'',k='mech';
+  if(a==='hospital'||a==='clinic'||a==='doctors')k='hospital';
+  else if(a==='pharmacy')k='pharmacy';
+  else if(a==='police')k='police';
+  else if(a==='fire_station')k='fire';
+  else if(a==='fuel')k='fuel';
+  else if(a==='car_repair'||shop==='tyres'||shop==='car_repair'||shop==='motorcycle_repair')k='mech';
+  else return;
+  var c=e.center||e;if(c.lat==null||c.lon==null)return;
+  var id=e.type+'/'+e.id;if(seen[id])return;seen[id]=true;
+  g[k].push({n:t.name||t['name:en']||'(name not listed)',ph:t.phone||t['contact:phone']||'',lat:c.lat,lon:c.lon});
+ });
+ $('svc').innerHTML=Object.keys(CATS).map(function(k){
+  var a=g[k];a.forEach(function(p){
+   L.marker([p.lat,p.lon],{icon:L.divIcon({html:'<span style="font-size:18px">'+CATS[k][0]+'</span>',className:'',iconSize:[22,22]})})
+    .bindPopup('<b>'+esc(p.n)+'</b><br>'+esc(p.ph||'Phone not listed')).addTo(svcL);
+  });
+  return '<div class="card"><h3>'+CATS[k][0]+' '+CATS[k][1]+' ('+a.length+')</h3>'+
+   (a.slice(0,10).map(function(p){return '<p><b>'+esc(p.n)+'</b>'+(p.ph?' &middot; '+esc(p.ph):'')+'</p>'}).join('')||'<p>None mapped in this search area.</p>')+'</div>';
+ }).join('');
+}
+
+// Accident data is fetched from the SafeRoute AI backend; no manual file picker is shown.
+// Configure these endpoints on your hosted backend when the verified feeds are ready.
+var API_BASE='http://'+window.location.hostname+':8000';
+var ACCIDENT_API={historical:API_BASE+'/api/accidents/historical',live:API_BASE+'/api/accidents/live'};
+function parseAccidentFeatures(obj,kind){
+ if(!obj||obj.type!=='FeatureCollection'||!Array.isArray(obj.features))throw new Error('The accident API must return a GeoJSON FeatureCollection.');
+ var parsed=[];obj.features.forEach(function(f){
+  if(!f.geometry||f.geometry.type!=='Point'||!Array.isArray(f.geometry.coordinates))return;
+  var lon=+f.geometry.coordinates[0],lat=+f.geometry.coordinates[1],p=f.properties||{};
+  if(!isFinite(lat)||!isFinite(lon)||lat<6||lat>38||lon<68||lon>98)return;
+  if(kind==='history'){var h=Number(p.hour);if(!isFinite(h)||h<0||h>23)h=-1;parsed.push([lat,lon,h,String(p.area||p.district||p.city||'Recorded location'),String(p.vehicle||'Unknown'),String(p.severity||'Unknown')]);}
+  else parsed.push({lat:lat,lon:lon,title:String(p.title||p.type||'Reported incident'),reportedAt:String(p.reportedAt||p.timestamp||''),status:String(p.status||'Unverified'),source:String(p.source||'Not supplied')});
+ });return parsed;
+}
+async function loadAccidentData(){
+ var status=$('dataStatus');var messages=[];
+ async function loadOne(kind,url){
+  try{var response=await fetch(url,{headers:{'Accept':'application/geo+json, application/json'}});if(!response.ok)throw new Error('HTTP '+response.status);var data=await response.json();var records=parseAccidentFeatures(data,kind);
+   if(kind==='history'){D=records;render();messages.push('Historical: '+D.length+' mapped record(s) received (verification status depends on source).');}
+   else{liveIncidents=records;drawMap();messages.push('Live: '+liveIncidents.length+' reported incident(s) received.');}
+  }catch(err){messages.push((kind==='history'?'Historical':'Live')+' data unavailable ('+err.message+').');}
+ }
+ await Promise.all([loadOne('history',ACCIDENT_API.historical),loadOne('live',ACCIDENT_API.live)]);
+ status.textContent=messages.join(' ');
+}
+
+async function submitCitizenReport(){
+ var status=$('reportStatus');status.textContent='Submitting report...';
+ try{
+  var lat=Number($('reportLat').value),lon=Number($('reportLon').value);
+  if(!isFinite(lat)||!isFinite(lon))throw new Error('Enter valid latitude and longitude, or use current location.');
+  var body={latitude:lat,longitude:lon,title:$('reportTitle').value.trim(),description:$('reportDescription').value.trim(),incident_type:$('reportType').value};
+  var result=await getJSON(API_BASE+'/api/reports',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)});
+  status.textContent='Report #'+result.report_id+' received. It is pending moderator review and is not yet a verified public alert.';
+  $('reportTitle').value='';$('reportDescription').value='';
+ }catch(e){status.textContent='Could not submit: '+e.message+'. Check the backend connection and location values.';}
+}
+function useCurrentLocation(){
+ var status=$('reportStatus');
+ if(!navigator.geolocation){status.textContent='Location permission is not supported by this browser.';return;}
+ status.textContent='Requesting location permission...';
+ navigator.geolocation.getCurrentPosition(function(pos){$('reportLat').value=pos.coords.latitude.toFixed(6);$('reportLon').value=pos.coords.longitude.toFixed(6);status.textContent='Location filled. Check it before submitting.';},function(err){status.textContent='Could not get location: '+err.message;},{enableHighAccuracy:true,timeout:12000,maximumAge:60000});
+}
+
+fill('timeSel',Object.keys(TIMES));fill('vehSel',VEH);
+if(typeof L==='undefined'){$('msg').textContent='The map library did not load. Check your internet connection and reload this page.';return;}
+map=L.map('map',{scrollWheelZoom:false}).setView([12.95,80.0],9);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+hotL=L.layerGroup().addTo(map);routeL=L.layerGroup().addTo(map);svcL=L.layerGroup().addTo(map);liveL=L.layerGroup().addTo(map);L.control.layers(null,{'Historical accident clusters':hotL,'Reported live incidents (unverified)':liveL,'Routes':routeL,'Nearby services':svcL},{collapsed:true}).addTo(map);
+$('timeSel').onchange=render;$('vehSel').onchange=render;$('go').onclick=go;$('sendReport').onclick=submitCitizenReport;$('useLocation').onclick=useCurrentLocation;
+render();go();loadAccidentData();setInterval(loadAccidentData,30000);
+})();
+</script></body></html>

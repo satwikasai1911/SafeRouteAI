@@ -1,0 +1,9 @@
+IMPORTANT: Python is not included in this package. Install Python 3.8.10 (Windows 32-bit/x86) first.
+Official Python release page:
+https://www.python.org/downloads/release/python-3810/
+
+On that page choose: Windows installer (32-bit).
+During installation tick: Add Python 3.8 to PATH.
+Then finish installation and restart Command Prompt.
+
+Python 3.8.10 is an old, unsupported version needed only because this project is targeting Windows 7. Windows 7 itself is also unsupported. Use this setup for a local classroom/demo network only, not a public production server.
