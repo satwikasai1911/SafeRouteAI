@@ -16,6 +16,9 @@ It does not independently discover every accident in India.
 """
 import os
 import sqlite3
+import json
+import urllib.request
+import urllib.parse
 from datetime import datetime, timedelta, timezone
 
 from flask import Flask, jsonify, request
@@ -157,7 +160,44 @@ def health():
         "open_live_incidents": live
     })
 
+@app.route("/api/services/nearby", methods=["GET"])
+def nearby_services():
+    lat = request.args.get("lat", type=float)
+    lon = request.args.get("lon", type=float)
 
+    if lat is None or lon is None:
+        return jsonify({"error": "Latitude and longitude are required"}), 400
+
+    if not (-90 <= lat <= 90 and -180 <= lon <= 180):
+        return jsonify({"error": "Invalid coordinates"}), 400
+
+    query = f"""
+    [out:json][timeout:25];
+    (
+      node(around:5000,{lat},{lon})["amenity"~"^(hospital|clinic|doctors|pharmacy|police|fire_station)$"];
+      way(around:5000,{lat},{lon})["amenity"~"^(hospital|clinic|doctors|pharmacy|police|fire_station)$"];
+    );
+    out center;
+    """
+
+    data = urllib.parse.urlencode({"data": query}).encode()
+
+    req = urllib.request.Request(
+        "https://overpass-api.de/api/interpreter",
+        data=data,
+        headers={"User-Agent": "SafeRouteAI/1.0"}
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=35) as response:
+            result = json.loads(response.read().decode())
+
+        return jsonify(result)
+
+    except Exception:
+        return jsonify({
+            "error": "Nearby services are temporarily unavailable"
+        }), 502
 @app.route("/api/accidents/historical", methods=["GET"])
 def get_historical():
     state = request.args.get("state")

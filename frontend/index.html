@@ -180,22 +180,27 @@ if(center){
  var last=rt.pts[rt.pts.length-1];
  pts.push(last);
 }
- // Search a wider 5 km radius around each sampled route point.
- var selectors=[
-  'nwr["amenity"~"^(hospital|clinic|doctors|pharmacy|police|fire_station|fuel|car_repair)$"]',
-  'nwr["shop"~"^(tyres|car_repair|motorcycle_repair)$"]'
- ];
- var statements=[];
- pts.forEach(function(p){var ll=p[0].toFixed(5)+','+p[1].toFixed(5);selectors.forEach(function(sel){statements.push(sel+'(around:5000,'+ll+');')})});
- var q='[out:json][timeout:60];('+statements.join('')+');out center 500;';
- var endpoints=['https://overpass-api.de/api/interpreter','https://overpass.kumi.systems/api/interpreter','https://overpass.nchc.org.tw/api/interpreter'];
- var j=null,lastError=null;
- for(var ep=0;ep<endpoints.length;ep++){
-  try{j=await getJSON(endpoints[ep],{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:'data='+encodeURIComponent(q)});break}
-  catch(err){lastError=err}
+ // Fetch nearby services through the SafeRoute backend.
+var j={elements:[]},lastError=null;
+
+try{
+ for(var i=0;i<pts.length;i++){
+  var url=API_BASE+'/api/services/nearby?lat='+pts[i][0]+'&lon='+pts[i][1];
+  var result=await getJSON(url);
+  if(result.elements){
+   j.elements=j.elements.concat(result.elements);
+  }
  }
- if(my!==svcTok)return;
- if(!j){$('svc').innerHTML='<div class="card">Nearby places could not be loaded right now. Check your internet connection and try selecting the route again. ('+esc(lastError?lastError.message:'service unavailable')+')</div>';return}
+}catch(err){
+ lastError=err;
+}
+
+if(my!==svcTok)return;
+
+if(lastError){
+ $('svc').innerHTML='<div class="card">Nearby services unavailable: '+esc(lastError.message)+'</div>';
+ return;
+}
  var g={hospital:[],pharmacy:[],police:[],fire:[],fuel:[],mech:[]},seen={};
  j.elements.forEach(function(e){
   var t=e.tags||{},a=t.amenity||'',shop=t.shop||'',k='mech';
