@@ -180,6 +180,58 @@ def nearby_services():
     out center;
     """
 
+    endpoints = [
+        "https://overpass-api.de/api/interpreter",
+        "https://overpass.kumi.systems/api/interpreter",
+        "https://overpass.nchc.org.tw/api/interpreter"
+    ]
+
+    data = urllib.parse.urlencode({"data": query}).encode()
+
+    for endpoint in endpoints:
+        try:
+            req = urllib.request.Request(
+                endpoint,
+                data=data,
+                headers={
+                    "User-Agent": "SafeRouteAI/1.0",
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            )
+
+            with urllib.request.urlopen(req, timeout=35) as response:
+                result = json.loads(response.read().decode())
+
+            return jsonify(result)
+
+        except Exception as error:
+            app.logger.warning(
+                "Overpass endpoint failed: %s - %s",
+                endpoint, error
+            )
+
+    return jsonify({
+        "error": "All nearby-services providers are temporarily unavailable"
+    }), 502
+def nearby_services():
+    lat = request.args.get("lat", type=float)
+    lon = request.args.get("lon", type=float)
+
+    if lat is None or lon is None:
+        return jsonify({"error": "Latitude and longitude are required"}), 400
+
+    if not (-90 <= lat <= 90 and -180 <= lon <= 180):
+        return jsonify({"error": "Invalid coordinates"}), 400
+
+    query = f"""
+    [out:json][timeout:25];
+    (
+      node(around:5000,{lat},{lon})["amenity"~"^(hospital|clinic|doctors|pharmacy|police|fire_station)$"];
+      way(around:5000,{lat},{lon})["amenity"~"^(hospital|clinic|doctors|pharmacy|police|fire_station)$"];
+    );
+    out center;
+    """
+
     data = urllib.parse.urlencode({"data": query}).encode()
 
     req = urllib.request.Request(
